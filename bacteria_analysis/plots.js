@@ -13,4 +13,34 @@ function init() {
     });
 };
 
+function optionChanged(newSample) {
+    console.log(newSample);
+    buildMetadata(newSample);
+    // buildCharts(newSample);
+};
+
+function buildMetadata(sample) {
+    d3.json("samples.json").then((data)=>{
+        var metadata = data.metadata;
+        var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+        var result = resultArray[0];
+        console.log(result);
+
+        var printResults = [];
+        Object.entries(result).forEach(([key,value])=>{
+            printResults = [key+': '+value];
+        });
+        var PANEL = d3.select("#sample-metadata");
+        
+        PANEL.html("");
+        PANEL.append("h6").text(printResults);
+    });
+};
+
+// function buildCharts(sample) {
+//     d3.json("samples.json").then((data)=>{
+//         var metadata = data.metadata;
+//     })
+// };
+
 init();
