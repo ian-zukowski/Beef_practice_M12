@@ -48,7 +48,7 @@ function buildMetadata(sample) {
         // for each key/value pair in the 'result' array:
         Object.entries(result).forEach(([key,value])=>{
             // append text to the #sample-metadata div -- this text SHOULD BE an f-string referencing the key, then the value
-            PANEL.append("h6").text('${key}: ${value}');
+            PANEL.append("h6").text("${key}: ${value}");
             // log the key/value that should have been printed
             console.log(key,value);
         });
