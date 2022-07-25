@@ -28,18 +28,14 @@ function buildMetadata(sample) {
         var result = resultArray[0];
         console.log(result);
 
-        var printResults = [];
-        Object.entries(result).forEach(([key,value])=>{
-            printResults = [key+': '+value];
-        });
+
         var PANEL = d3.select("#sample-metadata");
         
         PANEL.html("");
 
         Object.entries(result).forEach(([key,value])=>{
-            
-        })
-        PANEL.append("h6").text('${key.toUpperCase()}: ${value}');
+            PANEL.append("h6").text('${key.toUpperCase()}:${value}');
+        });
     });
 };
 
